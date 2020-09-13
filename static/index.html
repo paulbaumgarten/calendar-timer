@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>calendarTimer by Paul Baumgarten</title>
+		<link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+		<link href="calendar-timer.css" rel="stylesheet">
+		<link href="assets/base.css" rel="stylesheet">
+		<link href="assets/forms.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main-grid">
+			<div class="clock">
+				<div class="clock-date"></div>
+				<div class="clock-time"></div>
+			</div>
+			<div class="now">
+				<div class="now-subject">loading...</div>
+				<div class="now-start"></div>
+				<div class="now-finish"></div>
+				<div class="now-remaining alert"></div>
+			</div>
+			<div class="next1">
+				<div class="next-subject"></div>
+				<div class="next-start"></div>
+				<div class="next-finish"></div>
+				<div class="next-remaining">&nbsp;</div>
+			</div>
+			<div class="next2">
+				<div class="next2-subject"></div>
+				<div class="next2-start"></div>
+				<div class="next2-finish"></div>
+				<div class="next2-remaining">&nbsp;</div>
+			</div>
+		</div>
+		<div class="settings-button-container">
+			<button id="settings-button">
+				<img src="assets/settings.png" style="border:0">
+			</button>
+			<button id="fullscreen-button">
+				<img src="assets/fullscreen.png" style="border:0">
+			</button>
+		</div>
+		<div class="settings-form">
+			<form class="pure-form pure-form-stacked">
+				<fieldset>
+					<legend>Settings</legend>
+					<p>Open your Google Calendar and find the <i>Secret address in iCal format</i></i></p>
+					<label for="ical">iCal URL</label>
+					<input type="text" id="ical" placeholder="ical url" />
+					<span class="pure-form-message">This is a required field.</span>
+					<button type="button" id="save-settings" class="pure-button pure-button-primary">Save</button>
+				</fieldset>
+			</form>			
+		</div>
+	</body>
+	<script type="text/javascript" src="calendar-timer.js"></script>
+</html>

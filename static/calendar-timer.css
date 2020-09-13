@@ -1,0 +1,180 @@
+:root {
+    --main-bg-color: #222222;
+    --now-bg-color: #222288;
+    --next-bg-color: #222244;
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+    background-color: var(--main-bg-color);
+    font-size: var(--main-font-size);
+    color: #ccc;
+    font-family: sans-serif;
+    --main-font-size: 13vh;
+    --remaining-font-size: 26vh;
+}
+
+.main-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 2fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "clock"
+    "now"
+    "next1"
+    "next2";
+}
+
+.clock { 
+    grid-area: clock; 
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "clock-date clock-time";
+}
+
+.clock-date { 
+    grid-area: clock-date; 
+    margin: auto 30px;
+}
+
+.clock-time { 
+    grid-area: clock-time; 
+    text-align: right;
+    margin: auto 30px;
+}
+
+.now { 
+    grid-area: now; 
+    border-radius: 50px;
+    background-color: var(--now-bg-color);
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-areas: "now-subject now-start now-finish now-remaining";
+}
+
+.now-subject {
+    grid-area: now-subject;
+    margin: auto 30px;
+}
+
+.now-start {
+    grid-area: now-start;
+    margin: auto 30px;
+}
+
+.now-finish {
+    grid-area: now-finish;
+    margin: auto 30px;
+}
+
+.now-remaining {
+    grid-area: now-remaining;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    font-size: var(--remaining-font-size);
+}
+
+.alert {
+    border-radius: 50px;
+    background-color: #ff0000;
+}
+
+.next1 { 
+    grid-area: next1; 
+    border-radius: 50px;
+    background-color: var(--next-bg-color);
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-areas: "next-subject next-start next-finish next-remaining";
+}
+
+.next2 { 
+    grid-area: next2; 
+    border-radius: 50px;
+    background-color: var(--next-bg-color);
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-areas: "next-subject next-start next-finish next-remaining";
+}
+
+.next-subject {
+    grid-area: next-subject;
+    margin: auto 30px;
+}
+
+.next-start {
+    grid-area: next-start;
+    margin: auto 30px;
+}
+
+.next-finish {
+    grid-area: next-finish;
+    margin: auto 30px;
+}
+
+.next-remaining {
+    grid-area: next-remaining;
+    margin: auto 30px;
+}
+
+.next2-subject {
+    grid-area: next-subject;
+    margin: auto 30px;
+}
+
+.next2-start {
+    grid-area: next-start;
+    margin: auto 30px;
+}
+
+.next2-finish {
+    grid-area: next-finish;
+    margin: auto 30px;
+}
+
+.next2-remaining {
+    grid-area: next-remaining;
+    margin: auto 30px;
+}
+
+/* Force settings icon to bottom right corner */
+.settings-button-container {
+     position: fixed;
+     right: 0;
+     bottom: 0;
+}
+.settings-button-container button {
+    background-color: Transparent;
+    border: 0;
+}
+.settings-button-container button img {
+    width: 5vh;
+    height: 5vh;
+}
+.settings-button-container button img:hover {
+    background-color: red;
+    width: 5vh;
+    height: 5vh;
+}
+
+/* Settings form */
+.settings-form {
+    display: none;
+    width: 100%;
+    height: 100%;
+    font-size: 20pt;
+}
+ 
