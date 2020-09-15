@@ -6,13 +6,14 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0px;
     background-color: var(--main-bg-color);
     font-size: var(--main-font-size);
     color: #ccc;
     font-family: sans-serif;
-    --main-font-size: 13vh;
-    --remaining-font-size: 26vh;
+    --main-font-size: 8vw;
+    --remaining-font-size: 16vw;
 }
 
 .main-grid {
@@ -62,17 +63,17 @@ html, body {
 
 .now-subject {
     grid-area: now-subject;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .now-start {
     grid-area: now-start;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .now-finish {
     grid-area: now-finish;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .now-remaining {
@@ -112,42 +113,42 @@ html, body {
 
 .next-subject {
     grid-area: next-subject;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next-start {
     grid-area: next-start;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next-finish {
     grid-area: next-finish;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next-remaining {
     grid-area: next-remaining;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next2-subject {
     grid-area: next-subject;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next2-start {
     grid-area: next-start;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next2-finish {
     grid-area: next-finish;
-    margin: auto 30px;
+    margin: auto;
 }
 
 .next2-remaining {
     grid-area: next-remaining;
-    margin: auto 30px;
+    margin: auto;
 }
 
 /* Force settings icon to bottom right corner */
