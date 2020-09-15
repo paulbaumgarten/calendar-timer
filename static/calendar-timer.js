@@ -119,8 +119,9 @@ function ticktock() {
 	let timestamp = now.getTime()/1000;
 	// Debugging - fake the time
 	// timestamp += 24*60*60-3*60*60-30*60+48*60+2*60*60+18*60;
-	document.querySelector(".clock-date").innerHTML = new Date(timestamp*1000).toLocaleDateString();
-	document.querySelector(".clock-time").innerHTML = timeStringToHHMMSS(new Date(timestamp*1000).toLocaleTimeString());
+	let months = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+	document.querySelector(".clock-date").innerHTML = now.getDate() + " " + months[now.getMonth()];
+	document.querySelector(".clock-time").innerHTML = timeStringToHHMMSS(now.toLocaleTimeString());
 	while (eventNumber < eventData.length-1 && eventData[eventNumber]['finish-utc-timestamp'] < timestamp) {
 		eventNumber++;
 	}

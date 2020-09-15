@@ -45,7 +45,7 @@ def download_ical(ical_url):
         filename = get_calendar_name(text).replace("@","_at_").replace(".","_")
         # Save to file
         if len(filename) > 0:
-            filename = "calendars/" + filename + ".ical"
+            filename = os.path.join(app.root_path, "calendars", filename+".ical")
             with open(filename, "w", encoding="utf-8") as f:
                 f.write(text)
             print(f"ical file written to: '{filename}'")
