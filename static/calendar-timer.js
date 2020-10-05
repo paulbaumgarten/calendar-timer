@@ -152,6 +152,11 @@ function ticktock() {
 		document.querySelector(".next-subject").innerHTML = eventData[eventNumber]['label'];
 		document.querySelector(".next-start").innerHTML = timeStringToHHMM(startDateTime2.toLocaleTimeString());
 		document.querySelector(".next-finish").innerHTML = timeStringToHHMM(finishDateTime2.toLocaleTimeString());
+		// If we are in unscheduled time, show the minutes until the next event
+		if (document.querySelector(".now-subject").innerHTML == 'unscheduled') {
+			let secondsRemaining = eventData[eventNumber]['start-utc-timestamp'] - timestamp;
+			document.querySelector(".now-remaining").innerHTML = Math.floor(secondsRemaining / 60) + 1
+		}
 	} else {
 		document.querySelector(".next-subject").innerHTML = "";
 		document.querySelector(".next-start").innerHTML = "";
