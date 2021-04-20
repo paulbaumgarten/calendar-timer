@@ -6,6 +6,7 @@ import os
 from icalendar import Calendar, Event
 from datetime import datetime, date
 from pprint import pprint
+from werkzeug.utils import secure_filename
 
 app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'booyeah!secret!'
@@ -22,6 +23,20 @@ def home():
 @app.route('/favicon.ico')
 def favicon():
     return flask.send_file("static/favicon.ico")
+
+@app.route('/upload')
+def goto_upload_ical():
+    return flask.redirect("/static/upload.html")
+
+@app.route('/uploadsubmit', methods=['POST'])
+def upload_ical():
+    if flask.request.files['ical'].filename != '':
+        id = secure_filename(flask.request.values['id'])
+        f = flask.request.files['ical']
+        f.save(app.root_path + f'/calendars/{id}.ical')
+        return ("ok")
+    else:
+        return ("error")
 
 def get_calendar_name(ical_text):
     gcal = Calendar.from_ical(ical_text)
@@ -91,10 +106,10 @@ def calendardata():
     if flask.request.is_json:
         # Download the ical file
         data = flask.request.json
+        print(data)
         if 'ical' in data:
-            filename, url = download_ical(data['ical'])
+            filename = app.root_path + f'/calendars/{secure_filename(data["ical"])}.ical'
             # Save information to the user session
-            flask.session['ical_url'] = url
             flask.session['ical'] = filename
             # Parse the ical file
             browser_json = parse_ical(filename)
@@ -104,8 +119,9 @@ def calendardata():
             return '{ "error" : "ical not set" }'
     elif 'ical' in flask.session:
         # ical file already downloaded, parase the ical file
+        browser_json = parse_ical(flask.session['ical'])
         # Send the browser data
-        return json.dumps({})
+        return flask.jsonify(browser_json)
         # return json.dumps(today)
     else:
         # Inform browser we do not have ical information
